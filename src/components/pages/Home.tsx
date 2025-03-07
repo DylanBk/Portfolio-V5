@@ -18,13 +18,15 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="flex flex-col bg-almostWhite dark:bg-onyxBlack">
+        <div className="flex flex-col">
             <title>Home | Dylan Bullock | Software Developer</title>
 
             <Header />
 
+            <div className="fixed top-0 dot-grid"></div>
+
             <div
-                className="h-full w-fit ml-7 mt-56 sm:mt-56 md:mt-56 xl:mt-64 text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-bold dark:text-white select-none smooth-change">
+                className="h-full w-fit z-10 ml-7 mt-56 sm:mt-56 md:mt-56 xl:mt-64 text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-bold dark:text-white select-none smooth-change">
                 <h2>Hey there, my name's <span className="text-midBlue">Dylan.</span></h2>
                 <h2>I'm a <span
                     id="slow-type-section"

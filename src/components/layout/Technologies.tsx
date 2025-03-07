@@ -1,30 +1,16 @@
 import { useEffect, useState, useCallback } from "react";
 
 export default function Technologies() {
-    const [isScreenWide, setIsScreenWide] = useState<boolean>(window.screen.width > 768);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsScreenWide(window.screen.width > 768);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    type logo = {
+    type Logo = {
         src: string,
         alt: string,
         description: string,
     };
 
-    const [logos, setLogos] = useState<logo[]>([]);
+    const [logos, setLogos] = useState<Logo[]>([]);
 
     const updateLogos = useCallback((isDark: boolean) => { //useCallback stops function from rendering unecessarily by caching it
-        const baseLogos: logo[] = [
+        const baseLogos: Logo[] = [
             {
                 src: "/media/images/html5.svg",
                 alt: "HTML5",
@@ -75,19 +61,9 @@ export default function Technologies() {
                 alt: "SQLAlchemy",
                 description: "SQLAlchemy is a Python tool used to interact with databases.",
             },
-            {
-                src: "/media/images/express-dark.svg",
-                alt: "Express",
-                description: "Express is a web application framework for Node.js.",
-            },
-            {
-                src: "/media/images/flask-dark.svg",
-                alt: "Flask",
-                description: "Flask is a web application framework for Python.",
-            },
         ];
 
-        const themeLogos: logo[] = isDark ? [
+        const themeLogos: Logo[] = isDark ? [
             {
                 src: "/media/images/express-dark.svg",
                 alt: "Express",
@@ -126,139 +102,25 @@ export default function Technologies() {
         return () => mq.removeEventListener("change", handleChange);
     }, [updateLogos]);
 
-    console.log('logos', logos[0].src, typeof(logos))
+    console.log('logos', logos[0], typeof(logos))
 
 
     return (
-        <div className="bg-almostWhite dark:bg-onyxBlack select-none">
-            {logos ? (
-                !isScreenWide ? (
-                    <div className="flex flex-col items-center mt-10">
-                        <div className="flex">
-                            <div className="relative">
-                                <img src={logos[0].src} alt={logos[0].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[0].description}</span>
-                            </div>
+        <>
+            {logos.length > 1 ? (
+            <div className="relative">
+                <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 grid-rows-3 md:grid-rows-4 lg:grid-rows-3 gap-6 sm:gap-12 xl:gap-20 justify-items-center">
+                    {logos.map((logo:  Logo) => (
+                        <div className="!m-0 sm:m-8 gradient-border">
+                            <img src={logo.src} alt={logo.alt} className="h-12 sm:h-16 w-12 sm:w-16 tech-logo" />
+                            <span className=" backdrop-blur-md tech-tooltip">{logo.description}</span>
                         </div>
-                        <div className="flex">
-                            <div className="relative">
-                                <img src={logos[1].src} alt={logos[1].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[1].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[2].src} alt={logos[2].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[2].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex">
-                            <div className="relative">
-                                <img src={logos[3].src} alt={logos[3].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[3].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[4].src} alt={logos[4].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[4].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[5].src} alt={logos[5].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[5].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex">
-                            <div className="relative">
-                                <img src={logos[6].src} alt={logos[6].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[6].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[7].src} alt={logos[7].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[7].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[8].src} alt={logos[8].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[8].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex">
-                            <div className="relative">
-                                <img src={logos[9].src} alt={logos[9].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[9].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[10].src} alt={logos[10].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[10].description}</span>
-                            </div>
-                            <div className="relative">
-                                <img src={logos[11].src} alt={logos[11].alt} className="h-16 w-16 tech-logo-mobile" />
-                                <span className="tech-tooltip">{logos[11].description}</span>
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="w-1/2 flex flex-row items-center"> {/* on tooltips, explain the tech */}
-                        <div className="flex flex-col">
-                            <div className="relative gradient-border">
-                                <img src={logos[0].src} alt={logos[0].alt} className="h-16 w-16 tech-logo m-auto" />
-                                <span className="tech-tooltip">{logos[0].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="gradient-border">
-                                <img src={logos[1].src} alt={logos[1].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[1].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[2].src} alt={logos[2].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[2].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="gradient-border">
-                                <img src={logos[3].src} alt={logos[3].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[3].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[4].src} alt={logos[4].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[4].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[5].src} alt={logos[5].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[5].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="gradient-border">
-                                <img src={logos[6].src} alt={logos[6].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[6].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[7].src} alt={logos[7].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[7].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[8].src} alt={logos[8].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[8].description}</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="gradient-border">
-                                <img src={logos[9].src} alt={logos[9].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[9].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[10].src} alt={logos[10].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[10].description}</span>
-                            </div>
-                            <div className="gradient-border">
-                                <img src={logos[11].src} alt={logos[11].alt} className="h-16 w-16 tech-logo" />
-                                <span className="tech-tooltip">{logos[11].description}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                )
+                    ))}
+                </div>
+            </div>
             ) : (
-                <p>Loading...</p>
+                <></>
             )}
-        </div>
+        </>
     );
 };

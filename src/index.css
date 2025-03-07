@@ -6,10 +6,6 @@
   --color-deepBlue: #20222D;
   --color-midPurple: #9C81FE;
   --color-darkPurple: #8685FF;
-  --color-midGreen: #008000;
-  --color-darkGreen: #006100;
-  --color-midRed: #FF0000;
-  --color-darkRed: #CF0000;
   --color-midGrey: #939393;
   --color-darkGrey: #393939;
   --color-almostWhite: #f0f0f0;
@@ -28,60 +24,12 @@
   }
 }
 
-#cv-btn {
-  position: relative;
-  overflow: hidden;
-  background-image: linear-gradient(to right, var(--midBlue), var(--midPurple));
-  animation: Shine 10s ease infinite;
-  transition: 0.3s;
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.5);
-    width: 60px;
-    height: 100%;
-    top: 0;
-    filter: blur(30px);
-    transform: translateX(-100px) skewX(-15deg);
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.2);
-    width: 30px;
-    height: 100%;
-    top: 0;
-    filter: blur(5px);
-    transform: translateX(-100px) skewX(-15deg);
-  }
-
-  &:hover, &:focus {
-    transform: scale(1.2);
-
-    &::before,
-    &::after {
-      transform: translateX(300px) skewX(-15deg);
-      transition: 1s;
-    }
-  }
-}
-
-
 :root {
   --midBlue: #1E90FF;
   --darkBlue: #156FDB;
   --deepBlue: #20222D;
   --midPurple: #9C81FE;
   --darkPurple: #8685ff;
-  --midGreen: #008000;
-  --darkGreen: #006100;
-  --midRed: #FF0000;
-  --darkRed: #CF0000;
   --midGrey: #939393;
   --darkGrey: #393939;
   --almostWhite: #f0f0f0;
@@ -91,6 +39,18 @@
 * {
   box-sizing: border-box;
 
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    background: var(--midGrey);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background:var(--darkGrey);
+    border-radius: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
   ::-webkit-scrollbar {
     width: 0.5rem;
     background: var(--onyxBlack);
@@ -196,13 +156,73 @@ p {
 }
 
 
+/* CV BUTTON */
+
+
+#cv-btn {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(to right, var(--midBlue), var(--midPurple));
+  animation: Shine 10s ease infinite;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    width: 60px;
+    height: 100%;
+    top: 0;
+    filter: blur(30px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    height: 100%;
+    top: 0;
+    filter: blur(5px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+
+  &:hover, &:focus {
+    transform: scale(1.2);
+
+    &::before,
+    &::after {
+      transform: translateX(300px) skewX(-15deg);
+      transition: 1s;
+    }
+  }
+}
+
+
+.dot-grid {
+  height: 100%;
+  width: 100vw;
+  background-size: 3rem 3rem;
+  background-image: radial-gradient(circle, var(--midGrey) 1px, transparent 0);
+}
+@media (prefers-color-scheme: dark) {
+  .dot-grid {
+    background-image: radial-gradient(circle, var(--darkGrey) 1px, transparent 0);
+  }
+}
+
+
 /* --- TECHNOLOGIES --- */
 
 .tech-logo {
   max-width: none !important; /*stops gradient border being 'cut off'*/
   padding: 0.5rem;
-  border-radius: 6px;
-  margin: 0.25rem;
+  border-radius: 1rem;
+  margin: 0.2rem;
   background: var(--almostWhite);
 }
 
@@ -212,12 +232,13 @@ p {
   }
 }
 
+
 .tech-logo-mobile {
   margin: 0.5rem;
 }
 
 .gradient-border {
-  border-radius: 12px;
+  border-radius: 1rem;
   margin: 2rem;
   background-image: linear-gradient(-45deg, var(--midBlue), var(--midPurple));
   transform: rotate(0deg);
@@ -255,7 +276,7 @@ p {
   top: -3.5rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  background: rgb(32, 34, 45, 0.4);
+  background: rgba(32, 34, 45, 0.4);
   font-size: smaller;
   visibility: hidden;
 }
@@ -268,7 +289,7 @@ p {
 
 /* GRADIENT UNDERLINE */
 
-.border-b-gradient {
+.gradient-underline {
   border-bottom: solid 0.25rem;
   border-image: linear-gradient(to right, var(--midBlue), var(--midPurple) 75%, transparent 25%) 1;
 }

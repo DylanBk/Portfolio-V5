@@ -71,15 +71,15 @@ export default function Header() {
     return (
         <header
             ref={header}
-            className="h-40 w-full fixed top-0 z-10 flex flex-row items-center justify-around border-b-2 border-b-midGrey dark:border-b-deepBlue bg-almostWhite/90 dark:bg-onyxBlack/95 dark:text-white shadow-lg dark:shadow-none select-none smooth-change">
+            className="h-40 w-dvw fixed top-0 z-20 flex flex-row items-center justify-around border-b-2 border-b-midGrey dark:border-b-deepBlue bg-almostWhite/60 dark:bg-onyxBlack/60 backdrop-blur-lg dark:text-white shadow-lg dark:shadow-none select-none smooth-change">
                 <Link
-                    className="w-full sm:w-fit mt-10 sm:mt-0 text-3xl lg:text-4xl 2xl:text-5xl text-center smooth-change"
+                    className="w-fit mx-auto mt-10 sm:mt-0 text-3xl lg:text-4xl 2xl:text-5xl text-center smooth-change"
                     to="/">
                     <h1>Dylan's Portfolio</h1>
                 </Link>
 
                 {isScreenWide ? ( // renders a navbar for devices wider that 640px and a burger menu for smaller devices
-                    <nav className="right-12 md:right-28 flex flex-row gap-5 smooth-change">
+                    <nav className="flex flex-row gap-5 mr-12 smooth-change">
                         <Link
                             className="primary-link smooth-change"
                             to="/">
@@ -106,8 +106,7 @@ export default function Header() {
                             <div ref={line3} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
                         </button>
                         <div
-                            id="burgermenu"
-                            className="h-screen w-5/6 absolute top-0 right-0 hidden flex-col gap-10 pl-10 pt-28 bg-midGrey dark:bg-deepBlue z-10"
+                            className="h-screen w-5/6 absolute top-0 right-0 z-10 hidden flex-col gap-10 pl-10 pt-28 bg-midGrey dark:bg-deepBlue text-xl sm:text-2xl"
                             ref={bm}>
                             <Link
                                 className="w-fit primary-link smooth-change"

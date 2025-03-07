@@ -1,5 +1,5 @@
 export default function typingEffect(el: HTMLElement) {
-    const phrases = ["Software Developer", "College Student", "UI Designer"]
+    const phrases = ["Full Stack Developer", "College Student", "Software Developer"]
     let current_phrase_index = 0;
     let current_letter_index = 0;
 

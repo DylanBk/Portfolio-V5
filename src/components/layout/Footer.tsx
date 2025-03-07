@@ -9,7 +9,7 @@ import linkedin_icon_dark from '../../assets/icons/linkedin-dark.svg';
 
 export default function Footer() {
     return (
-        <footer className="h-44 w-full relative flex flex-col sm:flex-row gap-6 sm:gap-0 sm:justify-around px-2 mt-28 dark:bg-onyxBlack dark:text-white">
+        <footer className="min-h-44 w-full relative flex flex-col sm:flex-row gap-6 sm:gap-0 sm:justify-around px-2 mt-28 bg-almostWhite dark:bg-onyxBlack dark:text-white">
             <section className="flex flex-col gap-1">
                 <h4 className="mb-1 text-lg">Pages</h4>
                 <Link
