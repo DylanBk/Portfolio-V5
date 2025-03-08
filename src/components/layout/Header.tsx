@@ -21,11 +21,11 @@ export default function Header() {
         const handleScroll = () => {
             if (header.current) {
                 if (window.scrollY > 0) {
-                    header.current.classList.remove('h-40');
+                    header.current.classList.remove('h-32');
                     header.current.classList.add('h-24');
                 } else {
                     header.current.classList.remove('h-24');
-                    header.current.classList.add('h-40');
+                    header.current.classList.add('h-32');
                 };
             };
         };
@@ -71,15 +71,15 @@ export default function Header() {
     return (
         <header
             ref={header}
-            className="h-40 w-dvw fixed top-0 z-20 flex flex-row items-center justify-around border-b-2 border-b-midGrey dark:border-b-deepBlue bg-almostWhite/60 dark:bg-onyxBlack/60 backdrop-blur-lg dark:text-white shadow-lg dark:shadow-none select-none smooth-change">
+            className="h-32 w-full fixed top-0 z-20 flex flex-row items-center justify-between px-4 border-b-2 border-b-midGrey dark:border-b-deepBlue bg-almostWhite/60 dark:bg-onyxBlack/60 backdrop-blur-lg dark:text-white shadow-lg dark:shadow-none select-none smooth-change">
                 <Link
-                    className="w-fit mx-auto mt-10 sm:mt-0 text-3xl lg:text-4xl 2xl:text-5xl text-center smooth-change"
+                    className="w-fit mt-10 sm:mt-0 text-3xl text-center smooth-change"
                     to="/">
                     <h1>Dylan's Portfolio</h1>
                 </Link>
 
                 {isScreenWide ? ( // renders a navbar for devices wider that 640px and a burger menu for smaller devices
-                    <nav className="flex flex-row gap-5 mr-12 smooth-change">
+                    <nav className="w-fit flex flex-row gap-5 smooth-change">
                         <Link
                             className="primary-link smooth-change"
                             to="/">

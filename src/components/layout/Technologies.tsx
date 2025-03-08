@@ -110,8 +110,10 @@ export default function Technologies() {
             {logos.length > 1 ? (
             <div className="relative">
                 <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 grid-rows-3 md:grid-rows-4 lg:grid-rows-3 gap-6 sm:gap-12 xl:gap-20 justify-items-center">
-                    {logos.map((logo:  Logo) => (
-                        <div className="!m-0 sm:m-8 gradient-border">
+                    {logos.map((logo:  Logo, i: number) => (
+                        <div
+                            key={i}
+                            className="!m-0 sm:m-8 gradient-border">
                             <img src={logo.src} alt={logo.alt} className="h-12 sm:h-16 w-12 sm:w-16 tech-logo" />
                             <span className=" backdrop-blur-md tech-tooltip">{logo.description}</span>
                         </div>

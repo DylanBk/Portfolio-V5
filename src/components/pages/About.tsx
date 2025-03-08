@@ -57,10 +57,10 @@ export default function About() {
                     <h1 className="text-2xl sm:text-3xl md:text-4xl text-black dark:text-white">About Me</h1>
                 </div>
 
-                <div className="w-11/12 sm:w-4/5 lg:w-2/3 py-20 mx-auto rounded-sm mt-8 bg-deepBlue/10 backdrop-blur-xs">
-                    <div className='w-5/6 flex flex-col gap-28 p-6 border-1 border-midGrey rounded-xl sm:rounded-4xl lg:rounded-[4rem] mx-auto'>
+                <div className="w-11/12 sm:w-4/5 lg:w-2/3 py-20 mx-auto rounded-xl mt-8 bg-deepBlue/10 backdrop-blur-xs">
+                    <div className='w-5/6 flex flex-col gap-28 p-6 border-1 border-midGrey rounded-4xl mx-auto'>
                         <section className='w-11/12 md:w-3/4 lg:w-2/3 flex flex-row gap-4 px-3 py-4 border-1 border-midGrey rounded-md mx-auto text-nowrap text-black dark:text-white'>
-                            <img className='w-24 object-cover scale-3d rounded-md' src={profile.pfp} alt="A photo of me" />
+                            <img className='h-24 w-24 scale-3d rounded-full' src={profile.pfp} alt="A photo of me" />
 
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row gap-4">
@@ -79,7 +79,7 @@ export default function About() {
 
                                 <div className="flex flex-row gap-0.5">
                                     <a 
-                                        className='w-8 p-1 rounded-full hover:bg-deepBlue'
+                                        className='w-8 p-1 rounded-full hover:bg-midGrey dark:hover:bg-deepBlue'
                                         href="mailto:dylanbullock.dev@gmail.com"
                                         rel='noreferrer'
                                         target='_blank'>
@@ -90,7 +90,7 @@ export default function About() {
                                             </picture>
                                     </a>
                                     <a
-                                        className='w-8 p-1.5 rounded-full hover:bg-deepBlue'
+                                        className='w-8 p-1.5 rounded-full hover:bg-midGrey dark:hover:bg-deepBlue'
                                         href="https://www.linkedin.com/in/dylanbkdev"
                                         rel='noreferrer'
                                         target='_blank'>
@@ -101,7 +101,7 @@ export default function About() {
                                         </picture>
                                     </a>
                                     <a
-                                        className='w-8 p-1.5 rounded-full hover:bg-deepBlue'
+                                        className='w-8 p-1.5 rounded-full hover:bg-midGrey dark:hover:bg-deepBlue'
                                         href="https://github.com/DylanBk"
                                         rel='noreferrer'
                                         target='_blank'>

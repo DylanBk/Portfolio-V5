@@ -2,7 +2,9 @@ import Technologies from "./Technologies.tsx";
 
 export default function AbilitiesSection() {
     return (
-        <div className="max-w-5/6 md:min-w-full relative flex flex-col md:flex-row gap-8 md:gap-16 py-28 mx-auto md:m-0 md:ml-7 mt-56 sm:mt-64 lg:mt-72 items-center justify-around lg:justify-center text-black dark:text-white">
+        <div
+            id="abilities-sect"
+            className="max-w-5/6 md:max-w-full z-10 flex flex-col md:flex-row gap-8 md:gap-16 py-44 mx-auto md:mx-0 md:ml-7 items-center justify-around lg:justify-center text-black dark:text-white">
             <section className="w-fit md:w-5/12 xl:w-1/2">
                 <h2 className="text-2xl sm:text-4xl text-center md:text-left text-nowrap gradient-underline">What can I do?</h2>
                 <p className="xl:w-5/6 mt-3 text-sm sm:text-base text-pretty">
