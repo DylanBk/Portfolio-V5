@@ -1,3 +1,5 @@
+import { RefObject, useRef } from 'react';
+
 import Header from '../layout/Header.tsx';
 import Footer from '../layout/Footer.tsx';
 
@@ -11,6 +13,10 @@ import githubDark from '../../assets/icons/github-dark.svg'
 import githubLight from '../../assets/icons/github-light.svg'
 
 export default function About() {
+    const whoRef = useRef<HTMLSpanElement>(null);
+    const aspirationRef = useRef<HTMLSpanElement>(null);
+    const collegeRef = useRef<HTMLSpanElement>(null);
+
     type Profile = {
         pfp: string,
         name: string,
@@ -20,7 +26,6 @@ export default function About() {
         learning: string | null,
         project: string | null,
         working: string | null,
-        socials: object
     }
 
     const profile: Profile = {
@@ -32,12 +37,20 @@ export default function About() {
         learning: 'Vite and TypeScript',
         project: 'Portfolio',
         working: 'N/A',
-        socials: {
-            github: 'https://github.com/DylanBk',
-            linkedIn: 'https://linkedin.com/DylanBkDev',
-            email: '@mailto:dylanbullock.dev@gmail.com'
-        }
-    }
+    };
+
+    const readMore = (el: RefObject<HTMLSpanElement | null>) => { // will never be null but removes error message
+        if (el.current) {
+            const btn = el.current.parentNode?.querySelector('button') as HTMLButtonElement;
+            const br = btn.previousElementSibling as HTMLBRElement;
+
+            if (btn.style.display !== 'none') {
+                btn.style.display = 'none';
+                br.style.display = 'none';
+                el.current.style.display = 'flex';
+            };
+        };
+    };
 
 
     return (
@@ -57,29 +70,29 @@ export default function About() {
                     <h1 className="text-2xl sm:text-3xl md:text-4xl text-black dark:text-white">About Me</h1>
                 </div>
 
-                <div className="w-11/12 sm:w-4/5 lg:w-2/3 py-20 mx-auto rounded-xl mt-8 bg-deepBlue/10 backdrop-blur-xs">
-                    <div className='w-5/6 flex flex-col gap-28 p-6 border-1 border-midGrey rounded-4xl mx-auto'>
-                        <section className='w-11/12 md:w-3/4 lg:w-2/3 flex flex-row gap-4 px-3 py-4 border-1 border-midGrey rounded-md mx-auto text-nowrap text-black dark:text-white'>
+                <div className="w-11/12 sm:w-4/5 lg:w-2/3 py-8 sm:py-14 md:py-20 mx-auto rounded-xl mt-8 bg-deepBlue/10 backdrop-blur-xs">
+                    <div className='w-11/12 sm:w-5/6 flex flex-col gap-28 px-2 sm:px-6 py-6 border-1 border-midGrey rounded-4xl mx-auto'>
+                        <section className='w-full sm:w-fit flex flex-col sm:flex-row gap-4 items-center sm:items-start px-3 py-4 border-1 border-midGrey rounded-md mx-auto text-nowrap text-black dark:text-white'>
                             <img className='h-24 w-24 scale-3d rounded-full' src={profile.pfp} alt="A photo of me" />
 
                             <div className="flex flex-col gap-2">
-                                <div className="flex flex-row gap-4">
+                                <div className="flex flex-col xs:flex-row gap-4">
                                     <div className="flex flex-col">
                                         <p className='text-xl'>{profile.name}</p>
                                         <p className='text-sm font-thin'>{profile.age}</p>
                                         <p className='text-sm font-thin'>{profile.location}</p>
                                     </div>
 
-                                    <div className="flex flex-col gap-1 text-sm">
+                                    <div className="flex flex-col gap-1 text-xs md:text-sm text-wrap">
                                         <p>Currently Learning: <strong>{profile.learning}</strong></p>
                                         <p>Working On: <strong>{profile.project}</strong></p>
                                         <p>Employed At: <strong>{profile.working}</strong></p>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-row gap-0.5">
+                                <div className="flex flex-row gap-0.5 justify-center sm:justify-start sm:-ml-1 mt-1 sm:mt-0">
                                     <a 
-                                        className='w-8 p-1 rounded-full hover:bg-midGrey dark:hover:bg-deepBlue'
+                                        className='w-8 p-1 rounded-full hover:bg-midGrey focus:bg-midGrey dark:hover:bg-deepBlue dark:focus:bg-deepBlue'
                                         href="mailto:dylanbullock.dev@gmail.com"
                                         rel='noreferrer'
                                         target='_blank'>
@@ -90,7 +103,7 @@ export default function About() {
                                             </picture>
                                     </a>
                                     <a
-                                        className='w-8 p-1.5 rounded-full hover:bg-midGrey dark:hover:bg-deepBlue'
+                                        className='w-8 p-1.5 rounded-full hover:bg-midGrey focus:bg-midGrey dark:hover:bg-deepBlue dark:focus:bg-deepBlue'
                                         href="https://www.linkedin.com/in/dylanbkdev"
                                         rel='noreferrer'
                                         target='_blank'>
@@ -101,7 +114,7 @@ export default function About() {
                                         </picture>
                                     </a>
                                     <a
-                                        className='w-8 p-1.5 rounded-full hover:bg-midGrey dark:hover:bg-deepBlue'
+                                        className='w-8 p-1.5 rounded-full hover:bg-midGrey focus:bg-midGrey dark:hover:bg-deepBlue dark:focus:bg-deepBlue'
                                         href="https://github.com/DylanBk"
                                         rel='noreferrer'
                                         target='_blank'>
@@ -116,38 +129,73 @@ export default function About() {
                         </section>
 
                         <section className="w-11/12 sm:w-3/4 xl:w-1/2 flex flex-col mx-auto text-black dark:text-white smooth-change">
-                            <h2 className="relative text-2xl text-center"><span className='absolute left-0'>🧑‍💻</span><span className='ml-8'>Who am I?</span></h2>
-                            <p className="mt-3 text-base text-pretty">My name is Dylan, and I'm a 17-year-old college student partaking in a course on Digital Production, Design and Development. I am passionate about programming and UI design. My strong area is front-end development and I mainly use React in conjunction with TailwindCSS, I can also create back-ends with databases and I have more experience with Flask in Python but I plan to learn more Express and further on Next. Apart from web development, I like working with data in Python using pandas and matplotlib to create dashboards and generate useful information. In addition to programming, I consistently go to the gym and go on long bike rides. Aside from being active, I enjoy cooking, eating, listening to music, reading, and playing games.</p>
+                            <h2 className="relative text-xl sm:text-2xl text-center"><span className='absolute left-0 pr-2'>🧑‍💻</span><p className='px-8'>Who am I?</p></h2>
+                            <p className="mt-3 text-base text-pretty">
+                            I'm Dylan, a 17-year-old college student studying Digital Production, Design, and Development.
+                            <br /><br />
+                            I love designing sleek, modern UIs and bringing them to life as functional products.
+                            <br /><br />
+                            As someone who enjoys writing code for both the backend and frontend sections of websites, I am going down the full stack development route, and loving every step of the journey.
+                            <br />
+                            <button
+                                className=' flex text-midBlue hover:text-darkBlue focus:text-darkBlue cursor-pointer'
+                                onClick={() => readMore(whoRef)}>
+                                Read More...
+                            </button>
+                            <br /><br />
+                            <span
+                                ref={whoRef}
+                                className='hidden'>
+                                Beyond web development, I have discovered a new joy in working with data; I like to write scripts that process data and convert it into a human-friendly, visual format, ie creating dashboards for user behaviour.
+                                <br /><br />
+                                Aside from coding, I'm often working out at the gym, reading, or playing games. I also like to cook meals and enjoy eating them even more.
+                            </span>
+                            </p>
                         </section>
 
                         <section className="w-11/12 sm:w-3/4 xl:w-1/2 flex flex-col mx-auto text-black dark:text-white">
-                            <h2 className="relative text-2xl text-center"><span className="absolute left-0">🎯</span><span className='ml-8'>What are my aspirations?</span></h2>
-                            <p className="mt-3 text-base text-pretty">In the near future, I aim to become proficient in building websites that utilise a React front-end on a Flask back-end. Secondly, I would like to do the same except with an Express back-end, and then learn Next. As of now, I am unsure of what comes next after I finish college, you could say that university is the obvious answer, but an apprenticeship could be more valuable, or even going straight into a junior role. In the long term, I hope to go into a role involving data engineering or full stack development.</p>
+                            <h2 className="relative text-xl sm:text-2xl text-center"><span className="absolute left-0">🎯</span><p className='px-8'>My aspirations?</p></h2>
+                            <p className="mt-3 text-base text-pretty">
+                            My short-term goals encompass mastering React and integrating it with Next, and improving my proficiency in Pandas, NumPy, and Matplotlib.
+                            <br />
+                            <button
+                                className=' flex text-midBlue hover:text-darkBlue focus:text-darkBlue cursor-pointer'
+                                onClick={() => readMore(aspirationRef)}>
+                                Read More...
+                            </button>
+                            <br /><br />
+                            <span
+                                ref={aspirationRef}
+                                className="hidden">
+                                In the near future, I aim to secure an apprenticeship or a place on a computing science course at university. From there, I hope to pursue a career in web development or data engineering, or maybe even a blend of both.
+                                <br /><br />
+                                Beyond education, I would like to get a long-term position in a company contributing to data-driven projects or web development, continuously expanding my expertise and knowledge.
+                            </span>
+                            </p>
                         </section>
 
                         <section className="w-11/12 sm:w-3/4 xl:w-1/2 flex flex-col mx-auto text-black dark:text-white">
-                            <h2 className="relative text-2xl text-center"><span className="absolute left-0">🎓</span><span className='ml-8'>My College Experience</span></h2>
-                            <p className="mt-3 text-base text-pretty">I am in my second year of college and have learned the principles of front-end development such as UI/UX design, implementation via HTML, CSS, and JavaScript, and usability testing. At the end of my first year, we began looking into back-end development and I learned how to build a functional back-end in Python using Flask. I later learned how to connect it to a database using SQLite3. During my second year I have been focusing on learning React and integrating it with backends, I have mainly used Flask but my future projects will employ Express and Next.</p>
+                            <h2 className="relative text-xl sm:text-2xl text-center"><span className="absolute left-0 pr-2">🎓</span><p className='px-8'>My College Experience</p></h2>
+                            <p className="mt-3 text-base text-pretty">
+                            I am nearing the end of my college course, and over the past two years, I have learned a lot and had some incredible opportunities.
+                            <br />
+                            <button
+                                className=' flex text-midBlue hover:text-darkBlue focus:text-darkBlue cursor-pointer'
+                                onClick={() => readMore(collegeRef)}>
+                                Read More...
+                            </button>
+                            <br /><br />
+                            <span
+                                ref={collegeRef}
+                                className="hidden">
+                                In my first year, it was focused primarily on theory, principles, legalisation, and other considerations. Apart from that, it also covered practical applications of data processing with Pandas and Matplotlib. In the new year, I attended Nordevcon 2024 which was an exciting insight into the industry and a great learning experience. Towards the end, I started to learn web development principles and the basics of HTML, CSS, and JavaScript post-exam period. For the end-of-year project, I had some help learning Flask and then taught myself SQLite and TailwindCSS.
+                                <br /><br />
+                                When the second year began, I was taught React, which I had begun learning in the summer break. Mock exams have taken a large portion out of the year and the real exams will take even more. In my own time, I have taught myself a lot of things such as SQLAlchemy, command line, Git, WebSockets, and TypeScript. In May, I will start my work placement which I am ecstatic for and looking forward to very much.
+                            </span>
+                            </p>
                         </section>
                     </div>
                 </div>
-
-                {/* <section className="w-3/4 sm:w-2/3 md:w-1/2 flex flex-col mx-auto sm:ml-20 md:ml-28 mt-24 sm:mt-36 text-black dark:text-white smooth-change">
-                    <h2 className="z-10 text-2xl text-center sm:text-start">Who am I?</h2>
-                    <p className="z-10 mt-3 text-base text-pretty">My name is Dylan, and I'm a 17-year-old college student partaking in a course on Digital Production, Design and Development. I am passionate about programming and UI design. My strong area is front-end development and I mainly use React in conjunction with TailwindCSS, I can also create back-ends with databases and I have more experience with Flask in Python but I plan to learn more Express and further on Next. Apart from web development, I like working with data in Python using pandas and matplotlib to create dashboards and generate useful information. In addition to programming, I consistently go to the gym and go on long bike rides. Aside from being active, I enjoy cooking, eating, listening to music, reading, and playing games.</p>
-                </section>
-
-                <section className="w-full flex flex-row justify-end">
-                    <div className="w-3/4 sm:w-2/3 md:w-1/2 z-10 flex flex-col mx-auto sm:mr-20 md:mr-28 mt-20 sm:mt-28 text-black dark:text-white smooth-change ml-auto">
-                        <h2 className="z-10 text-2xl text-center sm:text-start">What are my aspirations?</h2>
-                        <p className="z-10 mt-3 text-base text-pretty">In the near future, I aim to become proficient in building websites that utilise a React front-end on a Flask back-end. Secondly, I would like to do the same except with an Express back-end, and then learn Next. As of now, I am unsure of what comes next after I finish college, you could say that university is the obvious answer, but an apprenticeship could be more valuable, or even going straight into a junior role. In the long term, I hope to go into a role involving data engineering or full stack development.</p>
-                    </div>
-                </section>
-
-                <section className="w-3/4 sm:w-2/3 md:w-1/2 flex flex-col mx-auto sm:ml-20 md:ml-28 mt-20 sm:mt-28 text-black dark:text-white smooth-change">
-                    <h2 className="z-10 text-2xl text-center sm:text-start">My college experience</h2>
-                    <p className="z-10 mt-3 text-base text-pretty">I am in my second year of college and have learned the principles of front-end development such as UI/UX design, implementation via HTML, CSS, and JavaScript, and usability testing. At the end of my first year, we began looking into back-end development and I learned how to build a functional back-end in Python using Flask. I later learned how to connect it to a database using SQLite3. During my second year I have been focusing on learning React and integrating it with backends, I have mainly used Flask but my future projects will employ Express and Next.</p>
-                </section> */}
             </main>
 
             <Footer />

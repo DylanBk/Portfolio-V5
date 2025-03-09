@@ -73,7 +73,7 @@ export default function Header() {
             ref={header}
             className="h-32 w-full fixed top-0 z-20 flex flex-row items-center justify-between px-4 border-b-2 border-b-midGrey dark:border-b-deepBlue bg-almostWhite/60 dark:bg-onyxBlack/60 backdrop-blur-lg dark:text-white shadow-lg dark:shadow-none select-none smooth-change">
                 <Link
-                    className="w-fit mt-10 sm:mt-0 text-3xl text-center smooth-change"
+                    className="w-fit mt-0 text-2xl md:text-3xl text-center smooth-change"
                     to="/">
                     <h1>Dylan's Portfolio</h1>
                 </Link>
@@ -99,14 +99,14 @@ export default function Header() {
                 ) : (
                     <div>
                         <button
-                            className="absolute top-5 right-5 group flex flex-col gap-2 items-center z-20"
+                            className="group flex flex-col gap-2 items-center z-20"
                             onClick={handleBurgermenu}>
                             <div ref={line1} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
                             <div ref={line2} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
                             <div ref={line3} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
                         </button>
                         <div
-                            className="h-screen w-5/6 absolute top-0 right-0 z-10 hidden flex-col gap-10 pl-10 pt-28 bg-midGrey dark:bg-deepBlue text-xl sm:text-2xl"
+                            className="h-screen w-5/6 absolute top-0 right-0 hidden flex-col gap-10 pl-10 pt-28 bg-midGrey dark:bg-deepBlue text-xl sm:text-2xl"
                             ref={bm}>
                             <Link
                                 className="w-fit primary-link smooth-change"

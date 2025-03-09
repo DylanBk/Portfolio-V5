@@ -82,10 +82,9 @@ export default function FeaturedProjects() {
 
                 const order = isEven ? 'flex-row' : 'flex-row-reverse'
                 const align = isEven ? 'left': 'right';
-                console.log(align)
 
                 return (
-                    <section key={project.name} className={`mb-16 project-container ${align}`}>
+                    <section key={project.name} className={`mb-16 backdrop-blur-xl project-container ${align}`}>
                         <div className={`flex ${order} gap-14`}>
                             <div className={`container-left project-text ${align}`}>
                                 <div className={`project-title ${align}`}>
@@ -108,7 +107,7 @@ export default function FeaturedProjects() {
                                 target="_blank"
                                 onMouseEnter={() => handleMouseEnter(i)}
                                 onMouseLeave={() => handleMouseLeave(i)}>
-                                <img src={project.cover} alt={project.coverAlt} />
+                                <img className="rounded-md" src={project.cover} alt={project.coverAlt} />
                                 <div
                                     ref={(el) => {
                                         if (el) {
@@ -143,7 +142,7 @@ export default function FeaturedProjects() {
                         target="_blank">
                         <div className="relative">
                             <img
-                                className="rounded-md project-cover-mobile"
+                                className="project-cover-mobile rounded-m"
                                 src={project.cover}
                                 alt={project.coverAlt}
                             />
@@ -171,6 +170,7 @@ export default function FeaturedProjects() {
 
     return (
         <main className="h-max flex flex-col mt-64 text-black dark:text-white">
+            <div className='fixed top-0 dot-grid'></div>
 
             <h1 className="w-fit pb-1 border-b-gradient mx-auto text-3xl sm:text-4xl">Featured Projects</h1>
 
