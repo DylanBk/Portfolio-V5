@@ -15,11 +15,11 @@ jobs:
 
       - name: Install Dependencies and Build
         run: |
-          npm install  # Fix capitalization
+          npm install
           npm run build
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v5.0.0
         with:
           server: ${{ secrets.FREEHOSTIA_FTP_SERVER }}
           username: ${{ secrets.FREEHOSTIA_FTP_USER }}
