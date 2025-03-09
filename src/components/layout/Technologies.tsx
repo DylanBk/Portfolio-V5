@@ -32,6 +32,11 @@ export default function Technologies() {
                 description: "React is a JavaScript library for building user interfaces.",
             },
             {
+                src: "/media/images/typescript.svg",
+                alt: "TypeScript",
+                description: "TypeScript is a superset of JavaScript that allows static typing"
+            },
+            {
                 src: "/media/images/javascript.svg",
                 alt: "JavaScript",
                 description: "JavaScript is a programming language that makes websites interactive.",
@@ -109,7 +114,7 @@ export default function Technologies() {
         <>
             {logos.length > 1 ? (
             <div className="relative">
-                <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 grid-rows-3 md:grid-rows-4 lg:grid-rows-3 gap-6 sm:gap-12 xl:gap-20 justify-items-center">
+                <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 grid-rows-3 md:grid-rows-4 lg:grid-rows-3 gap-6 sm:gap-12 xl:gap-20 !gap-y-8 justify-items-center">
                     {logos.map((logo:  Logo, i: number) => (
                         <div
                             key={i}
