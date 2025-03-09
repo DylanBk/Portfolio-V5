@@ -107,8 +107,6 @@ export default function Technologies() {
         return () => mq.removeEventListener("change", handleChange);
     }, [updateLogos]);
 
-    console.log('logos', logos[0], typeof(logos))
-
 
     return (
         <>
