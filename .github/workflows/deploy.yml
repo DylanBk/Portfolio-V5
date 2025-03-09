@@ -19,7 +19,7 @@ jobs:
           npm run build
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v5.0.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FREEHOSTIA_FTP_SERVER }}
           username: ${{ secrets.FREEHOSTIA_FTP_USER }}
