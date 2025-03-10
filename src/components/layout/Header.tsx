@@ -47,6 +47,8 @@ export default function Header() {
             if (isBurgermenuVisible) {
                 document.body.style.overflow = 'visible'; // resume scrolling
 
+                line1.current.parentElement?.setAttribute('aria-label', 'open burgermenu');
+
                 line1.current.style.transform = 'translateY(0) rotate(0)';
                 line3.current.style.transform = 'translateY(0) rotate(0)';
                 line2.current.style.transform = 'scale(1)';
@@ -56,6 +58,8 @@ export default function Header() {
                 setIsBurgermenuVisible(false);
             } else {
                 document.body.style.overflow = 'hidden'; // stops user from scrolling
+
+                line1.current.parentElement?.setAttribute('aria-label', 'close burgermenu');
 
                 line1.current.style.transform = 'translateY(0.75rem) rotate(45deg)';
                 line3.current.style.transform = 'translateY(-0.75rem) rotate(-45deg)';
@@ -100,10 +104,11 @@ export default function Header() {
                     <div>
                         <button
                             className="group flex flex-col gap-2 items-center z-20"
+                            aria-label="open burgermenu"
                             onClick={handleBurgermenu}>
-                            <div ref={line1} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
-                            <div ref={line2} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
-                            <div ref={line3} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300"></div>
+                            <div ref={line1} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300" aria-hidden="true"></div>
+                            <div ref={line2} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300" aria-hidden="true"></div>
+                            <div ref={line3} className="h-1 w-8 rounded-full bg-black dark:bg-white z-20 transition-all duration-300" aria-hidden="true"></div>
                         </button>
                         <div
                             className="h-screen w-5/6 absolute top-0 right-0 hidden flex-col gap-10 pl-10 pt-28 bg-midGrey dark:bg-deepBlue text-xl sm:text-2xl"

@@ -95,8 +95,9 @@ export default function About() {
                                         className='w-8 p-1 rounded-full hover:bg-midGrey focus:bg-midGrey dark:hover:bg-deepBlue dark:focus:bg-deepBlue'
                                         href="mailto:dylanbullock.dev@gmail.com"
                                         rel='noreferrer'
-                                        target='_blank'>
-                                            <picture>
+                                        target='_blank'
+                                        aria-label='email me'>
+                                            <picture aria-hidden="true">
                                                 <source srcSet={emailLight} media="(prefers-color-scheme: light)"></source>
                                                 <source srcSet={emailDark} media="(prefers-color-scheme: dark)"></source>
                                                 <img srcSet={emailLight} alt="Email Icon" />
@@ -106,8 +107,9 @@ export default function About() {
                                         className='w-8 p-1.5 rounded-full hover:bg-midGrey focus:bg-midGrey dark:hover:bg-deepBlue dark:focus:bg-deepBlue'
                                         href="https://www.linkedin.com/in/dylanbkdev"
                                         rel='noreferrer'
-                                        target='_blank'>
-                                        <picture>
+                                        target='_blank'
+                                        aria-label='my linkedin'>
+                                        <picture aria-hidden="true">
                                             <source srcSet={linkedinLight} media="(prefers-color-scheme: light)"></source>
                                             <source srcSet={linkedinDark} media="(prefers-color-scheme: dark)"></source>
                                             <img srcSet={linkedinLight} alt="Linkedin Icon" />
@@ -117,8 +119,9 @@ export default function About() {
                                         className='w-8 p-1.5 rounded-full hover:bg-midGrey focus:bg-midGrey dark:hover:bg-deepBlue dark:focus:bg-deepBlue'
                                         href="https://github.com/DylanBk"
                                         rel='noreferrer'
-                                        target='_blank'>
-                                        <picture>
+                                        target='_blank'
+                                        aria-label='my github'>
+                                        <picture aria-hidden="true">
                                             <source srcSet={githubLight} media="(prefers-color-scheme: light)"></source>
                                             <source srcSet={githubDark} media="(prefers-color-scheme: dark)"></source>
                                             <img srcSet={githubLight} alt="Github Icon" />

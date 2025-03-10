@@ -61,7 +61,7 @@ export default function FeaturedProjects() {
             description: 'Weatherly is a website that fetches real time weather data and provides an AI Overview of the weather forecast.\n\nIf the user does not wish to allow the website to access their location, they can optionally enter their location or any other location in the searchbar and get weather data for the entered area.',
             url: 'https://github.com/DylanBk/weatherly',
             cover: weatherly,
-            coverAlt: 'A screenshot of the website, it shows basic weather info like temperature and wind speed with an AI overview',
+            coverAlt: 'A screenshot of Weatherly showing basic info like temperature and wind speed with an AI overview',
             techStack: ['JavaScript', 'React', 'TailwindCSS', 'Weather API', 'Mistral AI']
         },
         {

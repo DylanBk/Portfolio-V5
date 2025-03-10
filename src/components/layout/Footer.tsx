@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <footer className="min-h-44 w-full relative flex flex-col sm:flex-row gap-6 sm:gap-0 sm:justify-around px-2 mt-28 bg-almostWhite dark:bg-onyxBlack dark:text-white">
             <section className="flex flex-col gap-1">
-                <h4 className="mb-1 text-lg">Pages</h4>
+                <h3 className="mb-1 text-lg">Pages</h3>
                 <Link
                     className="w-fit secondary-link"
                     to="/">
@@ -29,12 +29,13 @@ export default function Footer() {
                 </Link>
             </section>
             <section className="flex flex-col gap-1">
-                <h4 className="mb-1 text-lg">Resources</h4>
+                <h3 className="mb-1 text-lg">Resources</h3>
                 <a
                     className="w-fit secondary-link"
                     href="/media/pdfs/CV-Dylan-Bullock.pdf"
                     target="_bank"
-                    download={true}>
+                    download={true}
+                    aria-label="this will download as a PDF">
                     Download my CV
                 </a>
                 <a
@@ -44,15 +45,16 @@ export default function Footer() {
                 </a>
             </section>
             <section className="relative flex flex-col gap-1">
-                <h4 className="mb-1 text-lg sm:text-center">Contact Me</h4>
+                <h3 className="mb-1 text-lg sm:text-center">Contact Me</h3>
                 <div className="flex flex-row gap-2 items-center">
                     <a
                         className="flex items-center justify-center sm:p-2 rounded-full hover:bg-gray-300 dark:hover:bg-deepBlue hover:scale-105 focus:bg-gray-300 dark:focus:bg-deepBlue focus:scale-105 transition-all duration-300"
                         href="mailto:dev@dylanbullock.co.uk"
                         rel="noreferrer"
-                        target="_blank">
+                        target="_blank"
+                        aria-label="email me">
                         <div className="w-6 sm:w-10">
-                            <picture>
+                            <picture aria-hidden="true">
                                 <source srcSet={email_icon_light} media="(prefers-color-scheme: light)"></source>
                                 <source srcSet={email_icon_dark} media="(prefers-color-scheme: dark)"></source>
                                 <img srcSet={email_icon_light} alt="Email Icon" />
@@ -63,9 +65,10 @@ export default function Footer() {
                         className="flex items-center justify-center p-2 rounded-full hover:bg-gray-300 dark:hover:bg-deepBlue hover:scale-105 focus:bg-gray-300 dark:focus:bg-deepBlue focus:scale-105 transition-all duration-300"
                         href="https://github.com/DylanBk"
                         rel="noreferrer"
-                        target="_blank">
+                        target="_blank"
+                        aria-label="my github">
                         <div className="w-6 sm:w-10">
-                            <picture>
+                            <picture aria-hidden="true">
                                 <source srcSet={github_icon_light} media="(prefers-color-scheme: light)"></source>
                                 <source srcSet={github_icon_dark} media="(prefers-color-scheme: dark)"></source>
                                 <img srcSet={github_icon_light} alt="Github Icon" />
@@ -76,9 +79,10 @@ export default function Footer() {
                         className="flex items-center justify-center sm:p-2 rounded-full hover:bg-gray-300 dark:hover:bg-deepBlue hover:scale-105 focus:bg-gray-300 dark:focus:bg-deepBlue focus:scale-105 transition-all duration-300"
                         href="https://www.linkedin.com/in/DyIanBk/"
                         rel="noreferrer"
-                        target="_blank">
+                        target="_blank"
+                        aria-label="my linkedin">
                         <div className="w-5 sm:w-9 m-1">
-                            <picture>
+                            <picture aria-hidden="true">
                                 <source srcSet={linkedin_icon_light} media="(prefers-color-scheme: light)"></source>
                                 <source srcSet={linkedin_icon_dark} media="(prefers-color-scheme: dark)"></source>
                                 <img srcSet={linkedin_icon_light} alt="Linkedin Icon" />

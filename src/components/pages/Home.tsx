@@ -9,7 +9,7 @@ import typingEffect from "../../utils/slowType.ts";
 export default function Home() {
     const effectRan = useRef(false);
     const typingRef = useRef(null);
-    const downArrowRef = useRef<HTMLAnchorElement>(null);
+    const downArrowRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         if (!effectRan.current && typingRef.current) {
@@ -27,6 +27,14 @@ export default function Home() {
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const scrollToSection = () => {
+        const el = document.querySelector('#abilities-sect');
+
+        if (el) {
+            el.scrollIntoView({block: 'start'});
+        };
+    };
 
     return (
         <div className="flex flex-col">
@@ -54,7 +62,7 @@ export default function Home() {
                     rel="noreferrer"
                     target="_blank">
                     <p>Let's Talk</p>
-                    <svg className="w-7 fill-onyxBlack dark:fill-almostWhite" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="w-7 fill-onyxBlack dark:fill-almostWhite" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
                     </svg>
                 </a>
@@ -63,22 +71,24 @@ export default function Home() {
                     className="w-fit group flex flex-row gap-1 items-center p-4 border-2 border-midPurple hover:border-darkPurple rounded-xl backdrop-blur-sm text-sm sm:text-lg font-bold font-fira-code hover:scale-120 transition-all duration-300"
                     href="/media/pdfs/CV-Dylan-Bullock.pdf"
                     target="_blank"
-                    download="CV-Dylan-Bullock.pdf">
-                    <svg className="w-7 fill-onyxBlack dark:fill-almostWhite group-hover:fill-darkPurple transition-all duration-initial" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                    download="CV-Dylan-Bullock.pdf"
+                    aria-label="this will download as a PDF">
+                    <svg className="w-7 fill-onyxBlack dark:fill-almostWhite group-hover:fill-darkPurple transition-all duration-initial" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
                     </svg>
                     <p className="group-hover:text-darkPurple transition-all duration-300">Download CV</p>
                 </a>
             </div>
 
-            <a
+            <button
                 ref={downArrowRef}
                 className="w-20 relative mx-auto mt-28 md:mt-12 bg-radial from-midGrey/50 dark:from-darkGrey from-0% via-midPurple/40 dark:via-deepBlue via-30% to-transparent to-70% hover:scale-110 transition-all duration-500 cursor-pointer animate-slow-bouce"
-                href="#abilities-sect">
-                <svg className="fill-darkGrey dark:fill-midGrey" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                aria-label="Scroll down"
+                onClick={scrollToSection}>
+                <svg className="fill-darkGrey dark:fill-midGrey" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
                 </svg>
-            </a>
+            </button>
 
             <AbilitiesSection />
             <Footer />
