@@ -73,7 +73,7 @@ export default function Home() {
 
             <a
                 ref={downArrowRef}
-                className="w-20 relative mx-auto mt-8 bg-radial from-midGrey/50 dark:from-darkGrey from-0% via-midPurple/40 dark:via-deepBlue via-30% to-transparent to-70% hover:scale-110 transition-all duration-500 cursor-pointer animate-slow-bouce"
+                className="w-20 relative mx-auto mt-28 md:mt-12 bg-radial from-midGrey/50 dark:from-darkGrey from-0% via-midPurple/40 dark:via-deepBlue via-30% to-transparent to-70% hover:scale-110 transition-all duration-500 cursor-pointer animate-slow-bouce"
                 href="#abilities-sect">
                 <svg className="fill-darkGrey dark:fill-midGrey" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
                     <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>

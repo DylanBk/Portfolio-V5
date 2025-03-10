@@ -315,6 +315,7 @@ p {
 .gradient-border:active .tech-tooltip {
   visibility: visible;
   rotate: 10deg;
+  margin-right: 20px;
 }
 
 /* GRADIENT UNDERLINE */

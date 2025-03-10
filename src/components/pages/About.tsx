@@ -134,8 +134,6 @@ export default function About() {
                             I'm Dylan, a 17-year-old college student studying Digital Production, Design, and Development.
                             <br /><br />
                             I love designing sleek, modern UIs and bringing them to life as functional products.
-                            <br /><br />
-                            As someone who enjoys writing code for both the backend and frontend sections of websites, I am going down the full stack development route, and loving every step of the journey.
                             <br />
                             <button
                                 className=' flex text-midBlue hover:text-darkBlue focus:text-darkBlue cursor-pointer'
@@ -146,6 +144,8 @@ export default function About() {
                             <span
                                 ref={whoRef}
                                 className='hidden'>
+                                As someone who enjoys writing code for both the backend and frontend sections of websites, I am going down the full stack development route, and loving every step of the journey.
+                                <br /><br />
                                 Beyond web development, I have discovered a new joy in working with data; I like to write scripts that process data and convert it into a human-friendly, visual format, ie creating dashboards for user behaviour.
                                 <br /><br />
                                 Aside from coding, I'm often working out at the gym, reading, or playing games. I also like to cook meals and enjoy eating them even more.

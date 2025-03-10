@@ -172,7 +172,7 @@ export default function FeaturedProjects() {
         <main className="h-max flex flex-col mt-64 text-black dark:text-white">
             <div className='fixed top-0 dot-grid'></div>
 
-            <h1 className="w-fit pb-1 border-b-gradient mx-auto text-3xl sm:text-4xl">Featured Projects</h1>
+            <h1 className="w-fit pb-1 gradient-underline mx-auto text-3xl sm:text-4xl">Featured Projects</h1>
 
             {isScreenWide ? (
                 <div className="flex flex-col mt-20">
