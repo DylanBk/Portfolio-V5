@@ -475,7 +475,6 @@ p {
   max-width: 85%;
   position: relative;
   left: 50%;
-  background: #fff;
   padding: 0.5rem;
   border: solid 2px var(--darkBlue);
   border-radius: 1rem;
