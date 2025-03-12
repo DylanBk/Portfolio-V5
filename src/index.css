@@ -267,6 +267,7 @@ p {
   background-image: linear-gradient(-45deg, var(--midBlue), var(--midPurple));
   transform: rotate(0deg);
   transition: transform 0.3s ease-out;
+  /* position: relative; */
 }
 
 @media (min-width: 640px) {
@@ -303,6 +304,7 @@ p {
   background: rgb(147, 147, 147, 0.3);
   font-size: smaller;
   visibility: hidden;
+  z-index: 999 !important;
 }
 
 @media(prefers-color-scheme: dark) {
@@ -315,7 +317,6 @@ p {
 .gradient-border:active .tech-tooltip {
   visibility: visible;
   rotate: 10deg;
-  margin-right: 20px;
 }
 
 /* GRADIENT UNDERLINE */
