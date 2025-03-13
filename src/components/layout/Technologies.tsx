@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
 export default function Technologies() {
     type Logo = {
@@ -8,6 +8,7 @@ export default function Technologies() {
     };
 
     const [logos, setLogos] = useState<Logo[]>([]);
+    const tooltipRef = useRef<(HTMLSpanElement | null)[]>([]);
 
     const updateLogos = useCallback((isDark: boolean) => { //useCallback stops function from rendering unecessarily by caching it
         const baseLogos: Logo[] = [
@@ -107,6 +108,24 @@ export default function Technologies() {
         return () => mq.removeEventListener("change", handleChange);
     }, [updateLogos]);
 
+    const handleTooltip = (i: number) => {
+        const tooltip = tooltipRef.current[i];
+
+        if (tooltip) {
+            const rect = tooltip.getBoundingClientRect();
+            const vw = window.innerWidth;
+
+            if (tooltip.parentElement) {
+                tooltip.parentElement.style.zIndex = '100'; // forces tooltip to remain at front while not focused
+            }
+
+            if (rect.right > vw) {
+                tooltip.style.left = '-4rem';
+            } else if (rect.left < 0) {
+                tooltip.style.right = '-4rem';
+            };
+        };
+    };
 
     return (
         <>
@@ -116,9 +135,12 @@ export default function Technologies() {
                     {logos.map((logo:  Logo, i: number) => (
                         <div
                             key={i}
-                            className="!m-0 sm:m-8 gradient-border hover:z-50 focus:z-50 active:z-50">
+                            className="!m-0 sm:m-8 gradient-border hover:z-50 focus:z-50 active:z-50"
+                            onClick={() => handleTooltip(i)}>
                             <img src={logo.src} alt={logo.alt} className="h-12 sm:h-16 w-12 sm:w-16 tech-logo" />
-                            <span className=" backdrop-blur-md tech-tooltip">{logo.description}</span>
+                            <span
+                                ref={el => { tooltipRef.current[i] = el; }}
+                                className=" backdrop-blur-md tech-tooltip">{logo.description}</span>
                         </div>
                     ))}
                 </div>
