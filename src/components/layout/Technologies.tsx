@@ -113,6 +113,13 @@ export default function Technologies() {
     }, [updateLogos]);
 
     const handleTooltip = (i: number) => {
+        // Reset z-index for all tooltips
+        tooltipRef.current.forEach(tooltip => {
+            if (tooltip && tooltip.parentElement) {
+                tooltip.parentElement.style.zIndex = '0';
+            }
+        });
+
         const tooltip = tooltipRef.current[i];
 
         if (tooltip) {
@@ -131,7 +138,7 @@ export default function Technologies() {
         };
     };
 
-    const resetTooltipZIndex = (e: MouseEvent) => { // loop through logos and reset index except for focused one
+    const resetTooltipZIndex = (e: MouseEvent) => {
         if (!(e.target as HTMLElement).closest('.tech-logo')) {
             tooltipRef.current.forEach(tooltip => {
                 if (tooltip && tooltip.parentElement) {
