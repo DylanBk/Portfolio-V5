@@ -104,8 +104,12 @@ export default function Technologies() {
         const handleChange = (e: MediaQueryListEvent) => updateLogos(e.matches);
 
         mq.addEventListener("change", handleChange);
+        document.addEventListener('click', resetTooltipZIndex);
 
-        return () => mq.removeEventListener("change", handleChange);
+        return () => {
+            mq.removeEventListener("change", handleChange);
+            document.removeEventListener('click', resetTooltipZIndex);
+        };
     }, [updateLogos]);
 
     const handleTooltip = (i: number) => {
@@ -117,7 +121,7 @@ export default function Technologies() {
 
             if (tooltip.parentElement) {
                 tooltip.parentElement.style.zIndex = '100'; // forces tooltip to remain at front while not focused
-            }
+            };
 
             if (rect.right > vw) {
                 tooltip.style.left = '-4rem';
@@ -125,6 +129,16 @@ export default function Technologies() {
                 tooltip.style.right = '-4rem';
             };
         };
+    };
+
+    const resetTooltipZIndex = (e: MouseEvent) => { // loop through logos and reset index except for focused one
+        if (!(e.target as HTMLElement).closest('.tech-logo')) {
+            tooltipRef.current.forEach(tooltip => {
+                if (tooltip && tooltip.parentElement) {
+                    tooltip.parentElement.style.zIndex = '0';
+                }
+            });
+        }
     };
 
     return (
