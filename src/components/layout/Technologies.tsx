@@ -111,9 +111,7 @@ export default function Technologies() {
     return (
         <>
             {logos.length > 1 ? (
-            <div className="md:max-w-2/5 relative bg-red-50">
-                {/* <div className="grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 grid-rows-3 md:grid-rows-4 lg:grid-rows-3 gap-6 sm:gap-12 xl:gap-20 !gap-y-8 justify-items-center"> */}
-                
+            <div className="md:max-w-2/5 relative">                
                 <div className="flex flex-wrap gap-6 sm:gap-12 xl:gap-20 !gap-y-8 justify-center md:justify-start justify-items-center">
                     {logos.map((logo:  Logo, i: number) => (
                         <div
