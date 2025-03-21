@@ -5,6 +5,7 @@ import handleFocusedProject from '../../utils/handleFocusedProjects.ts';
 import bloomAcademia from '../../assets/images/bloom_academia_cover.svg';
 import weatherly from '../../assets/images/weatherly.png';
 import arcadiaLibrary from '../../assets/images/arcadiaLibrary.png';
+import comingSoon from '../../assets/images/comingSoon.png';
 
 export default function FeaturedProjects() {
     const [isScreenWide, setIsScreenWide] = useState<boolean>(window.screen.width > 768)
@@ -72,6 +73,15 @@ export default function FeaturedProjects() {
             cover: arcadiaLibrary,
             coverAlt: 'Some books and a lamp on a wooden desk',
             techStack: ['SQLAlchemy', 'Flask', 'JavaScript', 'React', 'CSS', 'TailwindCSS']
+        },
+        {
+            name: 'Momentum',
+            summary: 'Productivity App',
+            description: 'More information will be available soon',
+            url: '',
+            cover: comingSoon,
+            coverAlt: 'Coming Soon',
+            techStack: []
         }
     ];
 

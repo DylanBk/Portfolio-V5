@@ -338,7 +338,8 @@ p {
   border: solid 2px var(--darkBlue);
   border-radius: 2rem;
   margin: 2rem auto;
-  background-image: linear-gradient(to bottom, transparent, rgb(147, 147, 147, 20%));
+  background: rgb(32, 34, 45, 0.1);
+  /* background-image: linear-gradient(to bottom, transparent, rgb(147, 147, 147, 20%)); */
   transition: all 0.2s;
 }
 .project-container:hover {
@@ -349,7 +350,7 @@ p {
 @media (prefers-color-scheme: dark) {
   .project-container {
     border: solid 2px var(--deepBlue);
-    background-image: linear-gradient(to bottom, rgb(32, 34, 45, 40%), transparent);
+    /* background-image: linear-gradient(to bottom, rgb(32, 34, 45, 40%), transparent); */
   }
   .project-container:hover {
     background: rgb(32, 34, 45, 40%);
