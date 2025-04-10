@@ -12,30 +12,44 @@ import linkedinLight from '../../assets/icons/linkedin-light.svg'
 import githubDark from '../../assets/icons/github-dark.svg'
 import githubLight from '../../assets/icons/github-light.svg'
 
+type Profile = {
+    pfp: string,
+    name: string,
+    age: number,
+    location: string,
+    education: string | null,
+    learning: string | null,
+    project: string | null,
+    working: string | null,
+};
+
 export default function About() {
     const whoRef = useRef<HTMLSpanElement>(null);
     const aspirationRef = useRef<HTMLSpanElement>(null);
     const collegeRef = useRef<HTMLSpanElement>(null);
 
-    type Profile = {
-        pfp: string,
-        name: string,
-        age: number,
-        location: string,
-        education: string | null,
-        learning: string | null,
-        project: string | null,
-        working: string | null,
-    }
+    const getAge = () => {
+        const d = new Date();
+        const bd = new Date(2007, 3, 14, 0, 0, 0, 0);
+
+        let age = d.getFullYear() - bd.getFullYear()
+        const m = d.getMonth() - bd.getMonth()
+        
+        if (m < 0 || (m === 0 && d.getDate() < bd.getDate())) {
+            age--;
+        };
+
+        return age;
+    };
 
     const profile: Profile = {
         pfp: pfp,
         name: 'Dylan',
-        age: 17,
+        age: getAge(),
         location: 'Norwich, UK 🇬🇧',
         education: 'College Student',
-        learning: 'Vite and TypeScript',
-        project: 'Portfolio',
+        learning: 'TypeScript',
+        project: 'Momentum',
         working: 'N/A',
     };
 
@@ -86,7 +100,7 @@ export default function About() {
                                     <div className="flex flex-col gap-1 text-xs md:text-sm text-wrap">
                                         <p>Currently Learning: <strong>{profile.learning}</strong></p>
                                         <p>Working On: <strong>{profile.project}</strong></p>
-                                        <p>Employed At: <strong>{profile.working}</strong></p>
+                                        <p>Position: <strong>{profile.education}</strong></p>
                                     </div>
                                 </div>
 
