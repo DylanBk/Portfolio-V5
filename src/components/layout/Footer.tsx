@@ -32,7 +32,7 @@ export default function Footer() {
                 <h3 className="mb-1 text-lg">Resources</h3>
                 <a
                     className="w-fit secondary-link"
-                    href="/media/pdfs/CV-Dylan-Bullock.pdf"
+                    href="/media/pdfs/CV%20-%20Dylan%20Bullock.pdf"
                     target="_bank"
                     download={true}
                     aria-label="this will download as a PDF">

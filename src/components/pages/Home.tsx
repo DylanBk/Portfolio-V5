@@ -69,7 +69,7 @@ export default function Home() {
 
                 <a
                     className="w-fit group flex flex-row gap-1 items-center px-4 py-3 sm:py-4 border-2 border-midPurple hover:border-darkPurple rounded-xl backdrop-blur-sm text-sm sm:text-lg font-bold font-fira-code hover:scale-120 transition-all duration-300"
-                    href="/media/pdfs/CV-Dylan-Bullock.pdf"
+                    href="/media/pdfs/CV%20Dylan%20-%20Bullock.pdf"
                     target="_blank"
                     download="CV-Dylan-Bullock.pdf"
                     aria-label="this will download as a PDF">
