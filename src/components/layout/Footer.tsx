@@ -77,7 +77,7 @@ export default function Footer() {
                     </a>
                     <a
                         className="flex items-center justify-center sm:p-2 rounded-full hover:bg-gray-300 dark:hover:bg-deepBlue hover:scale-105 focus:bg-gray-300 dark:focus:bg-deepBlue focus:scale-105 transition-all duration-300"
-                        href="https://www.linkedin.com/in/DyIanBk/"
+                        href="https://www.linkedin.com/in/dylanbkdev/"
                         rel="noreferrer"
                         target="_blank"
                         aria-label="my linkedin">
