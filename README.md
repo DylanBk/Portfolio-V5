@@ -13,6 +13,7 @@ You can find it at [https://dylanbullock.co.uk](https://dylanbullock.co.uk)
 ## Attribution
 
 All icons are sourced from [Google Fonts](https://fonts.google.com/icons).
+All fonts are sourced from [Google Fonts](https://fonts.google.com).
 
 ## Local Setup & Run
 
