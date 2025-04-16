@@ -26,3 +26,4 @@ jobs:
           password: ${{ secrets.FREEHOSTIA_FTP_PASS }}
           local-dir: './dist/'
           server-dir: '/dylanbullock.co.uk/'
+          timeout: 300000
