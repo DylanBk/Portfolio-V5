@@ -4,8 +4,8 @@ import handleFocusedProject from '../../utils/handleFocusedProjects.ts';
 
 import bloomAcademia from '../../assets/images/bloom_academia_cover.svg';
 import weatherly from '../../assets/images/weatherly.png';
+import momentum from '../../assets/images/momentum.png'
 import arcadiaLibrary from '../../assets/images/arcadiaLibrary.png';
-import comingSoon from '../../assets/images/comingSoon.png';
 
 export default function FeaturedProjects() {
     const [isScreenWide, setIsScreenWide] = useState<boolean>(window.screen.width > 768)
@@ -66,22 +66,22 @@ export default function FeaturedProjects() {
             techStack: ['JavaScript', 'React', 'TailwindCSS', 'Weather API', 'Mistral AI']
         },
         {
+            name: 'Momentum',
+            summary: 'Productivity WebApp',
+            description: 'Momentum is a productivity web app designed with the intent to allow people to track tasks they need to do and mark them as done when completed, this lets people see a visual indicator of how much stuff they have achieved and what needs to be done.',
+            url: 'https://github.com/DylanBk/Momentum',
+            cover: momentum,
+            coverAlt: 'A screenshot of some ToDos',
+            techStack: ['SQLAlchemy', 'Flask', 'TypeScript', 'React', 'TailwindCSS', 'CSS']
+        },
+        {
             name: 'Arcadia Library',
             summary: 'Digital Library',
             description: 'Arcadia Library is a web application similar to an e-commerce platform, users are able to search for books by name or ISBN and check their availability. It offers advanced features like filtering and sorting to simplify finding specific books. Administrators can manage user accounts and inventory, ensuring smooth operations and resource management.',
-            url: 'https://github.com/dylanbk/arcadia-library',
+            url: 'https://github.com/DylanBk/arcadia-library',
             cover: arcadiaLibrary,
             coverAlt: 'Some books and a lamp on a wooden desk',
-            techStack: ['SQLAlchemy', 'Flask', 'JavaScript', 'React', 'CSS', 'TailwindCSS']
-        },
-        {
-            name: 'Momentum',
-            summary: 'Productivity App',
-            description: 'More information will be available soon',
-            url: '',
-            cover: comingSoon,
-            coverAlt: 'Coming Soon',
-            techStack: []
+            techStack: ['SQLAlchemy', 'Flask', 'JavaScript', 'React', 'TailwindCSS', 'CSS']
         }
     ];
 
